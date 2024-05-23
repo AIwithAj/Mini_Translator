@@ -1,30 +1,30 @@
 from src.Mini_Translator.config.configuration import ConfigurationManager
-from src.Mini_Translator.components.data_ingestion import DataIngestion
+from src.Mini_Translator.components.prepare_base_model import Base_Model
 from src.Mini_Translator.logging import logger
 
-
-STAGE_NAME = "Data Ingestion stage"
-
-class DataIngestionTrainingPipeline:
+STAGE_NAME="Prepare Base Model"
+class BaseModelPipeline:
     def __init__(self):
         pass
 
     def main(self):
         try:
             config = ConfigurationManager()
-            data_ingestion_config = config.get_data_ingestion_config()
-            data_ingestion = DataIngestion(config=data_ingestion_config)
-            data_ingestion.initiate_data_ingestion()
+            get_model_config = config.get_model_config()
+            base_model = Base_Model(config=get_model_config)
+            base_model.initiate_prepare_base_model()
         except Exception as e:
             raise e
 
 
+        
 if __name__ == '__main__':
     try:
         logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
-        obj = DataIngestionTrainingPipeline()
+        obj = BaseModelPipeline()
         obj.main()
         logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
     except Exception as e:
         logger.exception(e)
         raise e
+
