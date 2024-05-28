@@ -1,6 +1,6 @@
 import os
-from src.Mini_Translator.logging import logger
-from src.Mini_Translator.config.configuration import DataValidationConfig
+from Mini_Translator.logging import logger
+from Mini_Translator.config.configuration import DataValidationConfig
 
 class DataValiadtion:
     def __init__(self, config: DataValidationConfig):

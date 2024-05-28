@@ -1,5 +1,5 @@
 import os
-from src.Mini_Translator.logging import logger
+from Mini_Translator.logging import logger
 import spacy
 from datasets import load_dataset, load_from_disk
 import json
@@ -9,15 +9,15 @@ import torchtext
 from torchtext.vocab import build_vocab_from_iterator
 import torch.nn as nn
 import torch
-from src.Mini_Translator.constants import *
-from src.Mini_Translator.utils.common import read_yaml
-from src.Mini_Translator.config.configuration import DataTransformationConfig
+from Mini_Translator.constants import *
+from Mini_Translator.utils.common import read_yaml
+from Mini_Translator.config.configuration import DataTransformationConfig
 
 class DataTransformation:
     def __init__(self, config: DataTransformationConfig, config_filepath=CONFIG_FILE_PATH):
         self.config = config
-        # os.system(f"python -m spacy download {config.tokenizer_1}")
-        # os.system(f"python -m spacy download {config.tokenizer_2}")
+        os.system(f"python -m spacy download {config.tokenizer_1}")
+        os.system(f"python -m spacy download {config.tokenizer_2}")
         self.config2 = read_yaml(config_filepath)
 
     def tokenize_example(self, example, en_nlp, de_nlp, max_length, lower, sos_token, eos_token):
@@ -108,8 +108,7 @@ class DataTransformation:
             min_freq=min_freq,
             specials=special_tokens,
         )
-        torch.save(en_vocab, 'en_vocab.pth')
-        torch.save(de_vocab, 'de_vocab.pth')
+  
         #         torch.save(en_vocab, os.path.join(self.config.root_dir,'vocab/en_vocab.pth'))
         # torch.save(de_vocab, os.path.join(self.config.root_dir,'vocab/de_vocab.pth'))
 
@@ -120,6 +119,8 @@ class DataTransformation:
 
         en_vocab.set_default_index(en_vocab[unk_token])
         de_vocab.set_default_index(de_vocab[unk_token])
+        torch.save(en_vocab, 'en_vocab.pth')
+        torch.save(de_vocab, 'de_vocab.pth')
 
 
 

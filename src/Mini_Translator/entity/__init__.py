@@ -47,5 +47,16 @@ class ModelConfig:
     decoder_dropout: float
     
 
-    
+@dataclass(frozen=True)
+class model_trainer_config:
+    root_dir: Path
+        
+    n_epochs: int
+    clip: float
+    teacher_forcing_ratio:  float
 
+
+    
+@dataclass(frozen=True)
+class model_eval_config:
+    root_dir: Path

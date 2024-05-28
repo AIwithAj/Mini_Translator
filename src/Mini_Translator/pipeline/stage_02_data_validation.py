@@ -1,6 +1,6 @@
-from src.Mini_Translator.components.data_validation import DataValiadtion
-from src.Mini_Translator.config.configuration import ConfigurationManager
-from src.Mini_Translator.logging import logger
+from Mini_Translator.components.data_validation import DataValiadtion
+from Mini_Translator.config.configuration import ConfigurationManager
+from Mini_Translator.logging import logger
 
 
 STAGE_NAME="Data Validation"

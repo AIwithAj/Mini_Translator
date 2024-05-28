@@ -1,6 +1,6 @@
-from src.Mini_Translator.config.configuration import ConfigurationManager
-from src.Mini_Translator.components.prepare_base_model import Base_Model
-from src.Mini_Translator.logging import logger
+from Mini_Translator.config.configuration import ConfigurationManager
+from Mini_Translator.components.prepare_base_model import Base_Model
+from Mini_Translator.logging import logger
 
 STAGE_NAME="Prepare Base Model"
 class BaseModelPipeline:

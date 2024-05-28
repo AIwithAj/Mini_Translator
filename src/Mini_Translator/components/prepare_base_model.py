@@ -2,9 +2,9 @@ import json
 import os
 import torch
 import torch.nn as nn
-from src.Mini_Translator.logging import logger
-from src.Mini_Translator.config.configuration import ModelConfig
-from src.Mini_Translator.components import Seq2Seq,Encoder,Decoder
+from Mini_Translator.logging import logger
+from Mini_Translator.config.configuration import ModelConfig
+from Mini_Translator.components import Seq2Seq,Encoder,Decoder
 
 class Base_Model:
     def __init__(self, config: ModelConfig):

@@ -1,7 +1,7 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from src.Mini_Translator.logging import logger
+from Mini_Translator.logging import logger
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path

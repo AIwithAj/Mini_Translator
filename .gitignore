@@ -72,7 +72,8 @@ instance/
 
 # Sphinx documentation
 docs/_build/
-
+de_vocab.pth
+en_vocab.pth
 # PyBuilder
 target/
 
